@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!--
+      日志格式与线上保持一致：
+      2026-11-17 16:36:28.848  INFO [global-fusion-3] c.h.c.FastGptClient.chat[81] - 请求大模型参数：{...}
+      时间戳(毫秒) + 两空格 + 级别 + 空格 + [线程名] + logger.方法[行号] + 分隔符 + 消息
+    -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS}  %level [%thread] %logger.%method[%line] - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+    </root>
+
+</configuration>

@@ -1,0 +1,24 @@
+services:
+  fastgpt-demo:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      # 明确指定目标平台：linux/amd64
+      platforms:
+        - linux/amd64
+    image: fastgpt-kotlin-demo:1.0.0
+    container_name: fastgpt-kotlin-demo
+    environment:
+      TZ: "Asia/Shanghai"
+      FASTGPT_BASE_URL: "${FASTGPT_BASE_URL:-https://api.fastgpt.io}"
+      FASTGPT_API_KEY: "${FASTGPT_API_KEY:-}"
+      FASTGPT_CHAT_ID: "${FASTGPT_CHAT_ID:-14736041-f59e-4329-9284-f20475ab7bd3}"
+      FASTGPT_APP_ID: "${FASTGPT_APP_ID:-6a85961e6b9786fd6003756a}"
+      FASTGPT_FILE_URL: "${FASTGPT_FILE_URL:-}"
+      FASTGPT_SYSTEM: "${FASTGPT_SYSTEM:-0}"
+      FASTGPT_BUSINESS_CODE: "${FASTGPT_BUSINESS_CODE:-0}"
+      FASTGPT_CONCURRENCY: "${FASTGPT_CONCURRENCY:-3}"
+      FASTGPT_TIMEOUT_SECONDS: "${FASTGPT_TIMEOUT_SECONDS:-180}"
+      FASTGPT_MOCK: "${FASTGPT_MOCK:-true}"
+      FASTGPT_MOCK_DELAY_MS: "${FASTGPT_MOCK_DELAY_MS:-20000}"
+    restart: "no"
